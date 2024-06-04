@@ -1,0 +1,3 @@
+resources:
+  - fastapi-sample-deploy.yaml # Deploymentのマニフェスト
+  - fastapi-sample-svc.yaml # Serviceのマニフェスト

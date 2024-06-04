@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fastapi-sample
+  name: fastapi-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-sample
+  template:
+    metadata:
+      labels:
+        app: fastapi-sample
+    spec:
+      containers:
+        - image: fastapi-sample
+          name: fastapi-sample
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "128Mi"
