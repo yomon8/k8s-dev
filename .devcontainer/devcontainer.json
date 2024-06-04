@@ -1,19 +1,13 @@
 {
-    // DevContainerの名前
     "name": "k8s-dev",
-    // Dockerファイルを指定。以下のURLから適切なものを探すとスムーズ。
-    // https://mcr.microsoft.com/en-us/catalog?search=devcontainers
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
     },
     "mounts": [
-        // .sshと.awsをバインドすることで、sshやawsコマンドの設定を引継ぎ可能
         "source=${localEnv:HOME}/.ssh/,target=/home/vscode/.ssh/,type=bind,consistency=cached",
         "source=${localEnv:HOME}/.aws/,target=/home/vscode/.aws/,type=bind,consistency=cached"
     ],
-    // DevContainerにソフトウェアを追加可能
-    // 利用可能な機能はこちらから検索: https://containers.dev/features.
     "features": {
         "ghcr.io/rio/features/k3d:1": {},
         "ghcr.io/rio/features/k9s:1": {},
@@ -22,15 +16,20 @@
         "ghcr.io/mpriscella/features/kind:1": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
-    // DevContainer起動後に実行するコマンド
-    // VSCodeの設定
     "customizations": {
         "vscode": {
             "extensions": [
-                "kennylong.kubernetes-yaml-formatter",
-                "anweber.vscode-httpyac",
-                "yokawasa.jwt-debugger",
+                // K8s
                 "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "redhat.vscode-yaml",
+                "tamasfe.even-better-toml",
+                // Python
+                "ms-python.python",
+                "matangover.mypy",
+                "charliermarsh.ruff",
+                "njpwerner.autodocstring",
+                "ms-toolsai.jupyter",
+                // Git
                 "mhutchie.git-graph",
                 "eamodio.gitlens"
             ]

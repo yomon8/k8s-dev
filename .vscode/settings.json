@@ -1,0 +1,18 @@
+{
+    "ruff.enable": true,
+    "ruff.lint.run": "onSave",
+    "ruff.organizeImports": true,
+    "ruff.importStrategy": "useBundled",
+    "ruff.interpreter": [
+        "/usr/local/bin/python",
+    ],
+    "python.defaultInterpreterPath": "${workspaceFolder}/app/.venv/bin/python",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "never"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+}
